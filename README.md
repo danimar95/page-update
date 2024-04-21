@@ -1,4 +1,4 @@
-# Page update - PHP Project
+# Replication page - PHP Project
 
 This project makes changes to a given index.php file to match the following designs:
 
