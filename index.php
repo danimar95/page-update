@@ -1,9 +1,12 @@
 <?php
-include_once("/var/www/_templates/config/public/config-medicare.php");
+$domainName = "Dental Benefit Finder";
+$ringbaScriptPrimary = "//b-js.ringba.com/CAb49cfcb9181147da91c79a5b41b45130";
+$mbOfferSite = "/";
+$currentDomain = "goldenyearsbenefits.com";
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full w-full">
 
 <head>
 
@@ -18,121 +21,109 @@ include_once("/var/www/_templates/config/public/config-medicare.php");
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
-<body>
+<body class="w-full h-full">
     <a href="https://cdn.sppoints.xyz/click" class="hidden" id="rtRef"></a>
-    <nav class="bg-red-500 p-3 mt-0 w-full">
+    <nav id="nav" class="bg-indigo-800 p-3 mt-0 w-full h-8">
         <div class="container mx-auto flex items-center justify-between align-middle md:px-48">
             <div class="flex text-white font-extrabold">
-                <?php echo (($domainName == "Dental Benefit Finder") ? "Benefits For Seniors" : $domainName) ?>
             </div>
         </div>
     </nav>
-    <div id="mainContainer" class="mx-auto md:pt-4 pt-1 px-4 md:px-0 max-w-5xl text-center container">
-        <h1 class="font-black text-center break-normal text-base md:text-2xl mx-auto">
-            Older Americans on Medicare Could Receive Zero Cost ($0) Dental Coverage Usable At Their Current Dentist
-        </h1>
-        <img class="mx-auto my-2 w-full" src="<?php echo $cdnPath; ?>/assets/images/hero1.png" />
-        <p class="my-2 md:text-xl">
-            Americans 64 and Older On Medicare could qualify for Zero Cost ($0) Dental Coverage, but they don't know
-            that they are eligible. Older Americans are due for a relief from inflation but they don't know that it is
-            available. Please take your time to qualify through this form.
-        </p>
-        <p class="my-2 md:text-xl">
-            To see if you qualify, tap your age below.
-        </p>
+
+    
+    <div id="mainContainer" class="mx-auto md:pt-4 pt-1 px-12 md:px-4 md:px-0 max-w-5xl text-center container">
+        <div id="content1">
+            <h1 class="font-black text-center break-normal text-base text-2xl md:text-3xl mx-auto">
+                [STATE] Seniors: 2024 Medicare Advantage Plans Can Help You Save Thousands In Additional Benefits. Check Your Elegibility Now
+            </h1>
+            <img class="mx-auto my-2 w-full md:w-3/4" src="./assets/images/hero1.png" />
+            <div class="flex justify-center">
+                <div class="w-full md:w-3/4 flex flex-col">
+                    <p class="my-2 md:text-xl text-left">
+                        Millions of Seniors are rushing the hotlines to secure their 2024 Medicare Advantage benefit
+                    </p>
+                    <p class="my-2 md:text-xl text-left">
+                        <b>Benefit plans and options are allways changing,</b> so speak to our licensed sales agents and choose the right Medicare Advantage plan before enrollment ends!
+                    </p>
+                </div>
+            </div>
+        </div>
         <div>
             <div id="display1" class="md:mt-8 mt-4">
-                <h3 class="font-bold text-center md:text-4xl text-3xl my-8">
-                    What is your age range?
+                <h3 class="font-bold text-center text-2xl md:text-3xl my-8">
+                    Tap Your Age
                 </h3>
                 <div class="grid grid-cols-1  gap-6">
 
-                    <button id="btn-2" class="flex justify-center bg-green-500 hover:bg-green-500  tracking-wide text-white font-bold rounded-2xl md:w-3/4 w-1/2 mx-auto border-b-2 border-green-500 uppercase shadow-md md:py-6 py-4 md:text-2xl px-6 items-center">64
-                        - 75
+                    <button id="btn-2" class="flex justify-center bg-blue-500 hover:bg-blue-500 tracking-wide text-white font-bold rounded-2xl md:w-3/4 w-4/6 mx-auto border-b-2 bg-blue-500 shadow-md md:py-6 py-4 md:text-2xl px-6 items-center">65
+                        to 74
                     </button>
-                    <button id="btn-3" class="flex justify-center bg-green-500 hover:bg-green-500  tracking-wide text-white font-bold rounded-2xl md:w-3/4 w-1/2 mx-auto border-b-2 border-green-500 uppercase shadow-md md:py-6 py-4 md:text-2xl px-6 items-center">76
-                        and older
+                    <button id="btn-3" class="flex justify-center bg-blue-500 hover:bg-blue-500 tracking-wide text-white font-bold rounded-2xl md:w-3/4 w-4/6 mx-auto border-b-2 bg-blue-500 shadow-md md:py-6 py-4 md:text-2xl px-6 items-center">Over
+                        75
                     </button>
                 </div>
             </div>
             <div id="display2" class="md:mt-8 mt-4 hidden">
-                <h3 class="font-bold text-center md:text-4xl text-3xl my-8">
-                    Are You On Medicare or Medicaid?
+                <h3 class="font-bold text-center md:text-4xl text-2xl mt-8 mb-6 text-capitalize">
+                    Are You Enrolled In Medicare Part A Or Part B?
                 </h3>
                 <div class="grid grid-cols-1 gap-6">
-                    <button id="btn-yes" class="flex justify-center bg-green-500 hover:bg-green-500  tracking-wide text-white font-bold rounded-2xl md:w-3/4 w-1/2 mx-auto border-b-2 border-green-500 uppercase shadow-md md:py-6 py-4 md:text-2xl px-6 items-center cta_btn btn_2">
-
+                    <button id="btn-yes" class="flex justify-center bg-green-600 hover:bg-green-600  tracking-wide text-white rounded-2xl md:w-3/4 w-9/12 mx-auto border-b-2 border-green-600 uppercase shadow-md md:py-6 py-4 md:text-2xl px-6 items-center cta_btn btn_2">
                         Yes
                     </button>
-                    <button id="btn-no" class="flex justify-center bg-green-500 hover:bg-green-500  tracking-wide text-white font-bold rounded-2xl md:w-3/4 w-1/2 mx-auto border-b-2 border-green-500 uppercase shadow-md md:py-6 py-4 md:text-2xl px-6 items-center cta_btn btn_2">
+                    <button id="btn-no" class="flex justify-center bg-green-600 hover:bg-green-600  tracking-wide text-white font-bold rounded-2xl md:w-3/4 w-9/12 mx-auto border-b-2 border-green-600 uppercase shadow-md md:py-6 py-4 md:text-2xl px-6 items-center cta_btn btn_2">
                         No
                     </button>
                 </div>
-            </div>
-            <div id="display3" class="md:mt-8 mt-4 hidden">
-                <h3 class="font-bold text-center md:text-4xl text-3xl my-8">
-                    Are you also interested in Zero Cost ($0) Vision Coverage?
-                </h3>
-                <div class="grid grid-cols-1 gap-6">
-                    <button id="btn-yes1" class="flex justify-center bg-green-500 hover:bg-green-500  tracking-wide text-white font-bold rounded-2xl md:w-3/4 w-1/2 mx-auto border-b-2 border-green-500 uppercase shadow-md md:py-6 py-4 md:text-2xl px-6 items-center cta_btn btn_2">
-
-                        Yes
-                    </button>
-                    <button id="btn-no1" class="flex justify-center bg-green-500 hover:bg-green-500  tracking-wide text-white font-bold rounded-2xl md:w-3/4 w-1/2 mx-auto border-b-2 border-green-500 uppercase shadow-md md:py-6 py-4 md:text-2xl px-6 items-center cta_btn btn_2">
-                        No
-                    </button>
-                </div>
-            </div>
-
-
+            </div> 
         </div>
     </div>
-    <div id="display4" class="hidden hidden mx-auto md:pt-4 pt-1 px-4 md:px-0 max-w-5xl container ">
-        <div class="p-6 border-t-2 border-blue-500 mt-4 bg-gray-300 text-center shadow-xl">
-            <h3 class="text-xl md:text-2xl font-bold">
-                It looks like you may have pre-qualified. Your agent will confirm your information.
+    <div id="display3" class="hidden hidden mx-auto md:pt-4 pt-1 px-4 md:px-0 max-w-5xl container h-full">
+        <div class="p-6 mt-4 text-center h-full">
+            <h3 class="text-3xl md:text-2xl font-semibold text-green-600">
+                Congratulations!
             </h3>
-            <p class="mt-2 text-red-500 md:text-sm text-xs capitalize font-bold">Important: Mention To The Agent That
-                You Are Calling For The Zero Cost ($0) Dental and Vision Coverage
+            <p class="mt-2 font-black text-md font-semibold px-4 md:p-0">
+              You may be eligible for additional benefits and savings that may include:
             </p>
-            <a href="tel:<?php echo $ringbaNumberPrimaryTel; ?>">
-                <button class="capitalize font-bold  bg-green-500 animate__animated animate__pulse animate__infinite  text-white my-4 p-5  shadow-2xl md:text-2xl text-base">
-                    Click to Call
-                    <?php echo $ringbaNumberPrimary; ?>
+            <div class="flex justify-center">
+                <div class="flex flex-col justify-center my-4 gap-2 w-4/12 md:w-1/4 items-start">
+                    <div class="flex gap-2 items-center text-wrap">
+                        <div class="w-6 bg-green-400 rounded-full flex justify-center items-center">
+                            <span class="text-white font-bold">&check;</span>
+                        </div>
+                        <span class="font-black text-md capitalize font-semibold gap-2 items-center text-wrap w-4/6 text-left">Dental Hearing and Vision Care</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <div class="w-6 bg-green-400 rounded-full flex justify-center items-center">
+                            <span class="text-white font-bold">&check;</span>
+                        </div>
+                        <span class="font-black text-md capitalize font-semibold gap-2 items-center">Groceries</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <div class="w-6 bg-green-400 rounded-full flex justify-center items-center">
+                            <span class="text-white font-bold">&check;</span>
+                        </div>
+                        <span class="font-black text-md capitalize font-semibold gap-2 items-center">Prescriptions</span>
+                    </div>
+                </div>
+            </div>
+            <a href="tel:+18445413519">
+                <button class="uppercase bg-green-600 text-white p-5 rounded-2xl shadow-2xl md:text-2xl text-base">
+                    CALL (XXX) XXX-XXX-XXXX
                 </button>
             </a>
-
-            <p class="text-base my-4 underline">Act Quickly. Your agent is only reserved for the next 3 minutes.</p>
-
-            <div id="countdown" class="border-2 border-red-500 border-dashed w-max px-6 py-2 mx-auto">
-                <span class="text-red-500" id="time"></span>
+            <div class="flex justify-center mt-8 px-4 md:p-0">
+                <div class="w-fit text-md"><span class="p-2 bg-yellow-300 rounded-xl w-fit text-md box-decoration-clone">Make a <b>quick call</b> to our licensed sales agents to learn more before enroll.</span></div>
+            </div>
+            <div id="countdown" class="w-max px-6 py-2 mt-8 mx-auto">
+                <span class="text-red-500" id="time">[xx:xx]]</span>
             </div>
         </div>
     </div>
+    
 
     <footer class="footer mt-12 footer-center p-4 mt-12 mb-2 text-center max-w-6xl mx-auto text-xs">
-        <div>
-            <p>By clicking the above button and submitting this form, I agree that I am 18+ years old and I provide my signature expressly consenting to receive emails, calls, postal mail, text messages and other forms of marketing communication regarding Medicare and Health Insurance, or other offers from <?php echo $currentDomain; ?> and agents to the number(s) I provided, including a mobile phone, even if I am on a state or federal Do Not Call and/or Do Not Email registry. The list of companies participating are subject to change. I will receive calls and/or texts from multiple companies in the list and/or <?php echo $currentDomain; ?>. Such calls and text messages may use automated telephone dialing systems, artificial or pre-recorded voices. I understand my wireless carrier may impose charges for calls or texts. I understand that my consent to receive communications is not a condition of purchase and I may revoke my consent at any time. </p>
-        </div>
-        <div class="mb-4">
-            <p>
-                This information is for educational purposes only and not endorsed by
-                Facebook , Instagram YouTube or any news publication.
-            </p>
-        </div>
-        <div class="grid grid-flow-col gap-3 md:w-1/3 mx-auto my-8">
-            <a class="link link-hover" href="https://<?php echo $currentDomain; ?>/terms"> Terms & Conditions </a>
-            <p class="text-blue-500">|</p>
-            <a class="link link-hover" href="https://<?php echo $currentDomain; ?>/privacy"> Privacy Policy </a>
-
-            <p class="text-blue-500">|</p>
-            <a class="link link-hover" href="https://<?php echo $currentDomain; ?>/privacy.php#caresidents"> CCPA </a>
-        </div>
-        <div class="mt-8">
-            <p>Copyright © 2024 - All right reserved
-                <?php echo $domainName ?>
-            </p>
-        </div>
     </footer>
     <script src="https://cdn.sppoints.xyz/track.js?rtkcmpid=<?php echo $rtkCmpId; ?>"></script>
     <script>
@@ -199,16 +190,20 @@ include_once("/var/www/_templates/config/public/config-medicare.php");
         const btnNo = document.getElementById("btn-no");
         const btnYes1 = document.getElementById("btn-yes1");
         const btnNo1 = document.getElementById("btn-no1");
+        const nav = document.getElementById("nav");
 
         const mainContainer = document.getElementById("mainContainer");
+        const content1 = document.getElementById('content1');
         const display1 = document.getElementById("display1");
         const display2 = document.getElementById("display2");
         const display3 = document.getElementById("display3");
         const display4 = document.getElementById("display4");
 
         btn2.addEventListener("click", () => {
+            content1.style.display = "none";
             display1.style.display = "none";
             display2.style.display = "block";
+            nav.style.display = "none";
             const newUrl = new URL(window.location.href);
             newUrl.searchParams.set('age', '64');
             window.history.pushState({
@@ -218,8 +213,10 @@ include_once("/var/www/_templates/config/public/config-medicare.php");
             setRtClickId();
         })
         btn3.addEventListener("click", () => {
+            content1.style.display = "none";
             display1.style.display = "none";
             display2.style.display = "block";
+            nav.style.display = "none";
             const newUrl = new URL(window.location.href);
             newUrl.searchParams.set('age', '76');
             window.history.pushState({
@@ -244,25 +241,6 @@ include_once("/var/www/_templates/config/public/config-medicare.php");
 
         })
 
-
-        btnYes1.addEventListener("click", () => {
-            display2.style.display = "none";
-            mainContainer.style.display = "none";
-            display4.style.display = "block";
-
-            loadRingba()
-            runCountdownTimer()
-            scrollToTop()
-        })
-
-        btnNo1.addEventListener("click", () => {
-            display2.style.display = "none";
-            mainContainer.style.display = "none";
-            display4.style.display = "block";
-            loadRingba()
-            runCountdownTimer()
-            scrollToTop()
-        })
     </script>
 </body>
 
